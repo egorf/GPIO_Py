@@ -1,3 +1,5 @@
+import time
+
 class GPIO:
 
     gpio_prefix_short = "/sys/class/gpio/"
@@ -80,3 +82,15 @@ class GPIO:
         self.enableOverrideOutDir(1)
         #self.enableOverrideOutVal(1)
 
+
+pin1 = GPIO(12)
+pin2 = GPIO(13)
+
+b = True
+
+while True:
+	pin1.setValue(b)
+	pin2.setValue(not b)
+	time.sleep(0.5)
+	b = not b
+	print("Tick!")
