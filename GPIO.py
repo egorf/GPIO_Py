@@ -85,12 +85,20 @@ class GPIO:
 
 pin1 = GPIO(12)
 pin2 = GPIO(13)
+pin3 = GPIO(182)
 
 b = True
+delay = 0.5
 
 while True:
 	pin1.setValue(b)
+	time.sleep(delay)
+	pin1.setValue(not b)
+	pin2.setValue(b)
+	time.sleep(delay)
 	pin2.setValue(not b)
-	time.sleep(0.5)
-	b = not b
+	pin3.setValue(b)
+	time.sleep(delay)
+	pin3.setValue(not b)
+
 	print("Tick!")
