@@ -82,22 +82,39 @@ class GPIO:
         self.enableOverrideOutDir(1)
         #self.enableOverrideOutVal(1)
 
-# pin1 = GPIO(12)
-# pin2 = GPIO(13)
-# pin3 = GPIO(182)
+def test():
+    pin1 = GPIO(12)
+    pin2 = GPIO(13)
+    pin3 = GPIO(182)
 
-# b = True
-# delay = 0.5
+    pin1.setPinmux("mode0")
+    pin2.setPinmux("mode0")
+    pin3.setPinmux("mode0")
 
-# while True:
-# 	pin1.setValue(b)
-# 	time.sleep(delay)
-# 	pin1.setValue(not b)
-# 	pin2.setValue(b)
-# 	time.sleep(delay)
-# 	pin2.setValue(not b)
-# 	pin3.setValue(b)
-# 	time.sleep(delay)
-# 	pin3.setValue(not b)
+    b = True
+    delay = 0.5
 
-# 	print("Tick!")
+    print("Hello")
+    pin1.setValue(not b)
+    pin2.setValue(not b)
+    pin3.setValue(b)
+
+    time.sleep(1)
+
+    print("Goodbye")
+
+    while True:
+    	pin1.setValue(b)
+    	time.sleep(delay)
+    	pin1.setValue(not b)
+    	pin2.setValue(b)
+    	time.sleep(delay)
+    	pin2.setValue(not b)
+    	pin3.setValue(b)
+    	time.sleep(delay)
+    	pin3.setValue(not b)
+
+    	print("Tick!")
+
+if __name__ == "__main__":
+    test()
