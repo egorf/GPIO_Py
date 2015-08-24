@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 from GPIO import GPIO
 
@@ -94,8 +95,14 @@ def test():
     time.sleep(1)
 
 if __name__ == "__main__":
-    test()
+    # test()
+    led = ReachLED()
 
+    if len(sys.argv) < 2:
+        print("You need to specify a color\nList of colors: off, white, red, blue, green, cyan, magenta, yellow")
+    else:
+        led.setColor(sys.argv[1], 100)
+    
 
 
 
