@@ -20,7 +20,9 @@ class ReachLED:
             "white": [1, 1, 1],
             "yellow": [1, 1, 0],
             "cyan": [0, 1, 1],
-            "magenta": [1, 0, 1]
+            "magenta": [1, 0, 1],
+            "orange": [1, 0.4, 0],
+            "weakred": [0.1, 0, 0]
         }
 
         # channel numbers
@@ -55,6 +57,7 @@ class ReachLED:
         # 100% = 0
 
         duty_value = (100 - percentage) * 10000
+        duty_value = int(duty_value)
 
         with open(self.pwm_prefix + "pwm" + str(channel) + "/duty_cycle", "w") as f:
             f.write(str(duty_value))
